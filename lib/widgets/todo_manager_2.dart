@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hook_riverpod/hook_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../providers/todo_provider.dart';
 
 class TodoManager extends HookConsumerWidget {
