@@ -143,12 +143,19 @@ class _TodoManagerState extends State<TodoManager> {
             const SizedBox(height: 20),
             // ToDoリストを表示
             Expanded(
+              // ColumnやRowのような親ウィジェット内で空間を最大限に活用して、子ウィジェット（ここではListView）が伸びるようにします。
               child: ListView.builder(
-                itemCount: todos.length,
+                // ListView.builderは効率的にリストのアイテムを作成・表示するウィジェットです。アイテムが多くてもパフォーマンスに優れています。
+                itemCount: todos
+                    .length, // リストのアイテム数を指定します。todosリストの長さを基に、表示するアイテム数が決まります。
                 itemBuilder: (context, index) {
-                  final todo = todos[index];
+                  // itemBuilderはリストの各アイテムを作成するための関数です。`index`はリスト内のアイテムの位置を示します。
+                  final todo = todos[
+                      index]; // 現在の`index`に対応する`todos`リストのアイテムを取得します。`todos`はリストの各アイテムがMap形式で保存されています。
                   return ListTile(
-                    title: Text("ID: ${todo['id']} - ${todo['todo']}"),
+                    // ListTileはリストアイテムを表示するウィジェットです。各アイテムが1行で表示されるため、簡潔なリスト表示に適しています。
+                    title: Text(
+                        "ID: ${todo['id']} - ${todo['todo']}"), // `todo['id']`と`todo['todo']`を表示し、ToDoリストのIDと内容を表示します。
                   );
                 },
               ),

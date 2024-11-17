@@ -99,18 +99,12 @@ class TodoManager extends ConsumerWidget {
 
             /// ToDoリストを表示
             Expanded(
-              // 親ウィジェットの空間を占めるように、子ウィジェットを拡張します。
               child: ListView.builder(
-                // ListView.builderは、リストのアイテムを効率的に作成するためのウィジェットです。
-                itemCount: todos.length, // itemsの数、つまり表示するToDoの数を設定します。
+                itemCount: todos.length,
                 itemBuilder: (context, index) {
-                  // アイテムを作成するためのビルダー関数。indexはリスト内の各アイテムのインデックスを表します。
-                  final todo =
-                      todos[index]; // 現在のindexに対応するToDoアイテムをtodosリストから取得
+                  final todo = todos[index];
                   return ListTile(
-                    // ListTileは、リスト項目を表示するためのウィジェットで、シンプルな行（リストアイテム）を作成します。
-                    title: Text(
-                        "ID: ${todo['id']} - ${todo['todo']}"), // ToDoアイテムのIDと内容を表示。todoはMap形式で保存されているので、キー'id'と'todo'を使ってそれぞれの値を取り出します。
+                    title: Text("ID: ${todo['id']} - ${todo['todo']}"),
                   );
                 },
               ),
