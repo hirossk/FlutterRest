@@ -11,7 +11,7 @@ class TodoNotifier extends StateNotifier<List<Map<String, dynamic>>> {
     state = result ?? [];
   }
 
-  Future<String?> fetchTodoById(String id) async {
+  Future<String?> fetchTodoById(int id) async {
     final todo = await ApiService.fetchTodoById(id);
     return todo?['todo'];
   }

@@ -25,7 +25,7 @@ class ApiService {
   }
 
   // IDを指定してToDoを取得する非同期メソッド
-  static Future<Map<String, dynamic>?> fetchTodoById(String id) async {
+  static Future<Map<String, dynamic>?> fetchTodoById(int id) async {
     try {
       // 指定したIDのToDoを取得するHTTP GETリクエストを送信
       final response = await http.get(Uri.parse('$baseUrl/$id'));

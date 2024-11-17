@@ -4,13 +4,9 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- restfirststep.js & postmanで動作確認
+- restserverpartとpostmanを使ってデータの操作
+- restserverpartとscreens/todo_manager_1.dartを使ってflutter連携の確認(api_service.dartを利用)
+- restserverfullとscreens/todo_manager_2.dartを使ってTodoの全機能確認(api_service.dartを利用)
+- widgets/todo_manager_1.dart & todo_provider_1.dartを使った状態管理
+- widgets/todo_manager_2.dart & todo_provider_2.dartを使った状態管理（モデル利用のおまけ）

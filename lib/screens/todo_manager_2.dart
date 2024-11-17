@@ -33,7 +33,7 @@ class _TodoManagerState extends State<TodoManager> {
     if (id.isEmpty) return; // IDが空の場合は処理を中断
 
     // ToDoの詳細を取得
-    final todo = await ApiService.fetchTodoById(id);
+    final todo = await ApiService.fetchTodoById(int.parse(id));
     if (todo != null) {
       setState(() {
         // ToDoが見つかればその内容を表示

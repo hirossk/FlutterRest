@@ -30,7 +30,7 @@ app.get("/api/todos/:id", (req, res) => {
   if (todo) {
     res.send(todo); // データが見つかった場合、そのデータを返す
   } else {
-    res.status(500).send("ToDoが見つかりません"); // データが見つからなかった場合、404エラーメッセージを返す
+    res.status(404).send("ToDoが見つかりません"); // データが見つからなかった場合、404エラーメッセージを返す
   }
 });
 // todoの登録
@@ -52,7 +52,7 @@ app.put("/api/todos/:id", (req, res) => {
     const todo = todos.find((t) => t.id === parseInt(req.params.id));
   
     // idが存在しなければエラーを返す
-    if (!todo) return res.status(500).send("このToDoは存在しません");
+    if (!todo) return res.status(404).send("このToDoは存在しません");
     
     // 名前をリクエストに付与された値に変更
     todo.todo = req.body.todo;
@@ -66,7 +66,7 @@ app.delete("/api/todos/:id", (req, res) => {
     const todo = todos.find((t) => t.id === parseInt(req.params.id));
   
     // idが存在しなければエラーを返す
-    if (!todo) return res.status(500).send("このToDoは存在しません");
+    if (!todo) return res.status(404).send("このToDoは存在しません");
     
     // 特定したToDoがtodos配列のどこにいるか調べ
     // そのindexを保持

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../providers/todo_provider.dart';
+import '../providers/todo_provider_1.dart';
 
 class TodoManager extends ConsumerWidget {
   const TodoManager({super.key});
@@ -44,7 +44,7 @@ class TodoManager extends ConsumerWidget {
                     final id = idController.text;
                     if (id.isEmpty) return;
 
-                    final todo = await ref.read(todoProvider.notifier).fetchTodoById(id);
+                    final todo = await ref.read(todoProvider.notifier).fetchTodoById(int.parse(id));
                     todoController.text = todo ?? '';
                   },
                   child: const Text('検索'),
