@@ -36,7 +36,8 @@ class TodoManager extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ElevatedButton(
-                  onPressed: () => ref.read(todoProvider.notifier).fetchAllTodos(),
+                  onPressed: () =>
+                      ref.read(todoProvider.notifier).fetchAllTodos(),
                   child: const Text('全件検索'),
                 ),
                 ElevatedButton(
@@ -44,7 +45,9 @@ class TodoManager extends ConsumerWidget {
                     final id = idController.text;
                     if (id.isEmpty) return;
 
-                    final todo = await ref.read(todoProvider.notifier).fetchTodoById(int.parse(id));
+                    final todo = await ref
+                        .read(todoProvider.notifier)
+                        .fetchTodoById(int.parse(id));
                     todoController.text = todo ?? '';
                   },
                   child: const Text('検索'),
@@ -55,7 +58,9 @@ class TodoManager extends ConsumerWidget {
                     final todoText = todoController.text;
                     if (id.isEmpty || todoText.isEmpty) return;
 
-                    ref.read(todoProvider.notifier).addTodo(int.parse(id), todoText);
+                    ref
+                        .read(todoProvider.notifier)
+                        .addTodo(int.parse(id), todoText);
                     idController.clear();
                     todoController.clear();
                   },
@@ -67,7 +72,9 @@ class TodoManager extends ConsumerWidget {
                     final todoText = todoController.text;
                     if (id.isEmpty || todoText.isEmpty) return;
 
-                    ref.read(todoProvider.notifier).updateTodo(int.parse(id), todoText);
+                    ref
+                        .read(todoProvider.notifier)
+                        .updateTodo(int.parse(id), todoText);
                     idController.clear();
                     todoController.clear();
                   },
@@ -78,7 +85,9 @@ class TodoManager extends ConsumerWidget {
                     final id = idController.text;
                     if (id.isEmpty) return;
 
-                    ref.read(todoProvider.notifier).deleteTodoById(int.parse(id));
+                    ref
+                        .read(todoProvider.notifier)
+                        .deleteTodoById(int.parse(id));
                     idController.clear();
                     todoController.clear();
                   },
@@ -87,14 +96,21 @@ class TodoManager extends ConsumerWidget {
               ],
             ),
             const SizedBox(height: 20),
-            // ToDoリストを表示
+
+            /// ToDoリストを表示
             Expanded(
+              // 親ウィジェットの空間を占めるように、子ウィジェットを拡張します。
               child: ListView.builder(
-                itemCount: todos.length,
+                // ListView.builderは、リストのアイテムを効率的に作成するためのウィジェットです。
+                itemCount: todos.length, // itemsの数、つまり表示するToDoの数を設定します。
                 itemBuilder: (context, index) {
-                  final todo = todos[index];
+                  // アイテムを作成するためのビルダー関数。indexはリスト内の各アイテムのインデックスを表します。
+                  final todo =
+                      todos[index]; // 現在のindexに対応するToDoアイテムをtodosリストから取得
                   return ListTile(
-                    title: Text("ID: ${todo['id']} - ${todo['todo']}"),
+                    // ListTileは、リスト項目を表示するためのウィジェットで、シンプルな行（リストアイテム）を作成します。
+                    title: Text(
+                        "ID: ${todo['id']} - ${todo['todo']}"), // ToDoアイテムのIDと内容を表示。todoはMap形式で保存されているので、キー'id'と'todo'を使ってそれぞれの値を取り出します。
                   );
                 },
               ),
